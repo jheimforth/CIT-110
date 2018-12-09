@@ -10,6 +10,8 @@ namespace CapstoneProject
     {
         public enum GameCriticReception
         {
+
+            masterpiece,
             good,
             average,
             bad,
@@ -24,10 +26,14 @@ namespace CapstoneProject
 
         #region FIELDS 
         private string _gameName;
-        private double _gameReleaseYear;
+        private int _gameReleaseYear;
         private string _developer;
+        private string _publisher;
+        private bool _multiplayer;
+        private string _memories;
         private GameCriticReception _gameCriticReception;
-        private double _personalRating;
+        private int _personalRating;
+        
 
         
 
@@ -51,7 +57,7 @@ namespace CapstoneProject
             set { _gameName = value; }
         }
 
-        public double GameReleaseYear
+        public int GameReleaseYear
         {
             get { return _gameReleaseYear; }
             set { _gameReleaseYear = value; }
@@ -63,16 +69,34 @@ namespace CapstoneProject
             set { _developer = value; }
         }
 
+        public string Publisher
+        {
+            get { return _publisher; }
+            set { _publisher = value; }
+        }
+
+        public bool Multiplayer
+        {
+            get { return _multiplayer; }
+            set { _multiplayer = value; }
+        }
+
         public GameCriticReception CriticReception
         {
             get { return _gameCriticReception; }
             set { _gameCriticReception = value; }
         }
 
-        public double PersonalRating
+        public int PersonalRating
         {
             get { return _personalRating; }
             set { _personalRating = value; }
+        }
+
+        public string Memories
+        {
+            get { return _memories; }
+            set { _memories = value; }
         }
         #endregion
 
@@ -80,7 +104,7 @@ namespace CapstoneProject
 
         public string FavoriteGameReception()
         {
-            return _gameName + "is" + _gameCriticReception + ".";
+            return _gameName + ".";
            
         }
         #endregion
