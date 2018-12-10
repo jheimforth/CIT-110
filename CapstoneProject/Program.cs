@@ -42,8 +42,7 @@ namespace CapstoneProject
                 Console.WriteLine("\t3) Display Game Info");
                 Console.WriteLine("\t4) Remove a game from your list");
                 Console.WriteLine("\t5) Search for commonalities between games");
-                Console.WriteLine("\t6) ");
-                Console.WriteLine("\t7) Exit");
+                Console.WriteLine("\t6) Exit");
                 Console.WriteLine();
                 Console.Write("Enter Choice:");
                 menuChoice = Console.ReadLine();
@@ -68,11 +67,8 @@ namespace CapstoneProject
                         DisplaySearchFunction(favoriteGames);
                         break;
                     case "6":
-                 
-
-                        break;
-                    case "7":
                         exiting = true;
+
                         break;
                     default:
                         break;
@@ -126,7 +122,8 @@ namespace CapstoneProject
 
             Console.WriteLine("\ta) Developer");
             Console.WriteLine("\tb) Release Year");
-            Console.WriteLine("\tc) Return to main menu");
+            Console.WriteLine("\tc) Publisher");
+            Console.WriteLine("\td) Return to main menu");
             searchBy = Console.ReadLine();
             switch (searchBy)
             {
@@ -137,15 +134,34 @@ namespace CapstoneProject
                     SearchByYear(favoriteGames);
                     break;
                 case "c":
-                    DisplayContinuePrompt();
+                    SearchByPublisher(favoriteGames);
+                    break;
+                case "d":
+                     DisplayContinuePrompt();
                     break;
                 default:
                     break;
             }
-            
+           
         }
 
-        
+        private static void SearchByPublisher(List<FavoriteGames> favoriteGames)
+        {
+            string gamePublisher;
+            Console.WriteLine("Enter the Developer you wish to search by:");
+            gamePublisher = Console.ReadLine().ToUpper();
+
+            foreach (FavoriteGames favoriteGame in favoriteGames)
+            {
+                if (favoriteGame.Publisher == gamePublisher)
+                {
+                    Console.WriteLine(favoriteGame.GameName);
+
+                }
+            }
+
+            DisplayContinuePrompt();
+        }
 
         private static void SearchByYear(List<FavoriteGames> favoriteGames)
         {
